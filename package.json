@@ -1,0 +1,23 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "js, calendar, test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKrasnyi/Calendar.git"
+  },
+  "keywords": [
+    "js",
+    "calendar"
+  ],
+  "author": "Oleksandr Krasnyi <alex.krasniy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKrasnyi/Calendar/issues"
+  },
+  "homepage": "https://github.com/AlexKrasnyi/Calendar#readme"
+}
