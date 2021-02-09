@@ -4,7 +4,8 @@
   "description": "js, calendar, test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "parcel index.html --no-source-map --open",
+    "pro" : "parcel build index.html --no-source-map --no-cache --publick-url"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/AlexKrasnyi/Calendar/issues"
   },
-  "homepage": "https://github.com/AlexKrasnyi/Calendar#readme"
+  "homepage": "https://github.com/AlexKrasnyi/Calendar#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "parcelCleanPaths": [
+    "dist",
+    ".cache"
+  ]
 }
