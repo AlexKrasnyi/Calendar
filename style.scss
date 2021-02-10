@@ -1,0 +1,120 @@
+$backgroundBodyTh : #E5E5E5;
+$backgroundActive : #D3F5B4;
+$borderColor: #CACACA;
+$backgroundError: #EEE0DE;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+}
+.calendar__container {
+    margin-top: 100px;
+    display: grid;
+    justify-content: center;
+    // align-content: center;
+
+}
+.header {
+    min-width: 100%;
+    display: grid;
+    column-gap: 20px;
+    &__field, &__button {
+        height: 30px;
+        border-radius: 5px;
+    }
+}
+.calendar{
+    min-width: 100%;
+    margin-top: 25px;
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    &__header {
+        background-color: $backgroundBodyTh;
+    }
+
+}
+// .calendar__table {
+//     width: 100%;
+//     border-collapse: collapse;
+// }
+.row {
+    display: grid;
+    grid-template: 1fr / repeat(6, 1fr);
+    height: 35px;
+    &__sell {
+        border: 1px solid $borderColor;
+    }
+}
+
+.event {
+    min-width: 50%;
+    max-width: 768px;
+    margin: 100px auto 0 auto;
+    display: grid;
+    row-gap: 10px;
+    &__button {
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+}
+
+.field {
+    width: 90vw;
+    max-width: 768px;
+    min-width: 320px;
+    padding-left: 50px;
+    display: grid;
+    height: 35px;
+    grid-template: 1fr / 30% 30% 1fr;
+    &__name {
+        align-self: center;
+    }
+    &__data {
+        min-width: 120px;
+        height: 30px;
+        border: 1px solid #C7C7C7;
+        border-radius: 5px;
+        outline: none;
+    }
+}
+
+.buttons {
+    width: 100%;
+    padding-right: 50px;
+    display: grid;
+    grid-template: 1fr / 1fr auto;
+    column-gap: 10px;
+    justify-items: end;
+
+}
+
+
+// .event {
+//     margin-top: 100px;
+//     display: grid;
+//     justify-content: center;
+// }
+
+
+@media(min-width:768px) {
+    .container {
+        min-width: 768px;
+    }
+    .header {
+        min-width: 768px;
+        display: grid;
+        grid-template: 1fr / 1fr 20% 20%;
+    }
+}
+
+// .header {
+
+// }
