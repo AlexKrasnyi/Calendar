@@ -96,7 +96,19 @@ body {
 
 }
 
-
+.activeEvent {
+    text-align: center;
+    padding: 5px;
+    display: grid;
+    grid-template: 1fr / 80% 20%;
+    align-items: center;
+    &__button {
+        border-radius: 50%;
+        outline: none;
+        background-color: #D3F5B4;
+        border: none;
+    }
+}
 // .event {
 //     margin-top: 100px;
 //     display: grid;

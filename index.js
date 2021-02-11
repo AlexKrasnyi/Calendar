@@ -1,35 +1,48 @@
-import {calendar} from './src/calendar';
-import {createEvent} from './src/create-event'
+import {users, calendarHead, dayTimes} from './calendar';
 
-calendar();
+const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+const names = ['Sasha', 'Sveta', 'Sofia', 'Kolya'];
+const times = [10, 11, 12, 13, 14, 15, 16, 17, 18];
+const tHead = document.getElementsByClassName('calendar__header')[0];
+const tBody = document.getElementsByClassName('table__body')[0];
+const user = document.getElementById('names');
 
-const addEvent = document.getElementsByClassName('header__button')[0];
-const cal = document.getElementsByClassName('calendar__container')[0];
+users(names, user);
+calendarHead(["Name", ...weekDays], tHead);
+dayTimes(times, tBody, weekDays);
 
-addEvent.addEventListener('click', () => {
-    cal.style.display = 'none';
-    // document.body.insertAdjacentHTML('afterbegin', createEvent);
-    createEvent();
-    const addNewEvent = document.getElementsByClassName('event__button');
-    const eventPage = document.getElementsByClassName('event')[0];
-    console.log(addNewEvent);
-    addNewEvent[0].addEventListener('click', () => {
-        eventPage.style.display = 'none';
-        cal.style.display = 'grid';
-});
-    addNewEvent[1].addEventListener('click', () => {
-        const eventName = document.getElementsByClassName('field__data');
-        const activeCell = document.getElementsByClassName(`${eventName[2].value}_${eventName[3].value}`.toLowerCase())[0];
-        if(!activeCell.textContent){
-            activeCell.style.backgroundColor = '#D3F5B4';
-            activeCell.textContent = `${eventName[0].value}`
-            eventPage.style.display = 'none';
-            cal.style.display = 'grid';
-        } else {
-            alert('error')
-        }
-        
+if (!localStorage.getItem('calendarData')) {
+    const data = {};
+} else {
+   const data = JSON.parse(localStorage.getItem('calendarData'));
+   const dataEvent = Object.keys(data);
+   console.log(dataEvent);
+   dataEvent.forEach(el => {
+       console.log(el);
+       const activeCell = document.getElementById(el);
+       activeCell.style.backgroundColor = '#D3F5B4';
+       console.log(data[el].eventName);
+       activeCell.innerHTML = `<div class="activeEvent">
+       <p class="activeEvent__name">${data[el].eventName}</p>
+       <button type="button" class="activeEvent__button" id="button_${el}">&#10006</button>
+       </div>`
+
+       const activeEventButton = document.getElementById(`button_${el}`);
+       console.log(activeEventButton);
+       activeEventButton.addEventListener('click', () => {
+           console.log('click Button');
+           const modalBacground = document.getElementsByClassName('header');
+           console.log('body', document.body);
+           document.body.insertAdjacentHTML('afterbegin', `
+                <div class="modal">
+                    <div class="modal__window">
+                        
+                    </div>
+                </div>
+           `)
+       })
+   })
 
 
-    })
-})
+}
+
