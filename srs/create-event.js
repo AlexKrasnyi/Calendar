@@ -24,10 +24,11 @@ addEvent[1].addEventListener('click', () => {
             alert('this day and time occupied');
         }else{
             console.log(name === 'mon_10');
-        console.log(typeof(name));
+        console.log('partisipantsEvent', partisipantsEvent);
+        
         data[name] = {
             eventName : nameEvent,
-            EventPartisipans: partisipantsEvent
+            eventPartisipans: partisipantsEvent
         }
         localStorage.setItem('calendarData', JSON.stringify(data))
         returnHome.click();
@@ -40,7 +41,7 @@ addEvent[1].addEventListener('click', () => {
 
 
 function partisipans() {
-    const eventUser = document.getElementById('users');
+    const eventUser = document.getElementById('event__users');
     for(let i = 0; i < names.length; i++) {
         eventUser.insertAdjacentHTML('beforeend', `
         <option value="${names[i]}" class="userOption"> ${names[i]}</option>
@@ -49,7 +50,7 @@ function partisipans() {
 }
 
 function days() {
-    const eventDay = document.getElementById('days');
+    const eventDay = document.getElementById('event__day');
     for (let i = 0; i < weekDays.length; i++) {
         eventDay.insertAdjacentHTML('beforeend', `
         <option value="${weekDays[i]}">${weekDays[i]}</option>
@@ -57,10 +58,10 @@ function days() {
     }
 }       
 function time() {
-    const eventTime = document.getElementById('times');
+    const eventTime = document.getElementById('event__time');
     for (let i = 0; i < times.length; i++){
         eventTime.insertAdjacentHTML('beforeend', `
-        <option value="${times[i]}">${times[i]}}:00</option> 
+        <option value="${times[i]}">${times[i]}:00</option> 
         `
         )}
 }
