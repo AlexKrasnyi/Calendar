@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../style.scss">
+    <link rel="stylesheet" href="../scss/style.scss">
     <title>Document</title>
 </head>
 <body>
@@ -16,27 +16,24 @@
         </div>
         <div class="event__users field">
             <label for="event__users" class="field__name">Partisipants:</label>
-            <!-- <selec type="text" id="event__users" name="event__users" list="users" class="field__data"> -->
-            <select id="event__users"></select>
+            <select id="event__users" class="field__data"></select>
         </div>
         <div class="event__day field">
             <label for="event__day" class="field__name">Day:</label>
-            <!-- <input type="text" id="event__day" name="event__day" list="days" class="field__data"> -->
-            <select id="event__day"></select>
+            <select id="event__day" class="field__data"></select>
         </div>
         <div class="event__time field" >
             <label for="event__time" class="field__name">Time:</label>
-            <!-- <input type="text" id="event__time" name="event__time" list="times" class="field__data"> -->
-            <select id="event__time">
+            <select id="event__time" class="field__data">
             </select>
         </div>
         <div class="buttons">
             <button type="button" class="event__button buttonCancel">Cansel</button>
             <button type="button" class="event__button buttonOk">Ok</button>
-            <a href="../calendar.html" class="homeWay"></a>
+            <a href="../../calendar.html" class="homeWay"></a>
         </div>
     </div>
 
-    <script src="./create-event.js"></script>
+    <script src="../js/create-event.js"></script>
 </body>
 </html>

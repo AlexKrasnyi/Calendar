@@ -21,7 +21,7 @@ addEvent[1].addEventListener('click', () => {
         console.log(nameEvent, partisipantsEvent, dayEvent, timeEvent );
         const name = `${dayEvent}_${timeEvent}`.toLowerCase();
         if(typeof data[name] !== "undefined") {
-            alert('this day and time occupied');
+            error('This day and time occupied')
         }else{
             console.log(name === 'mon_10');
         console.log('partisipantsEvent', partisipantsEvent);
@@ -34,12 +34,26 @@ addEvent[1].addEventListener('click', () => {
         returnHome.click();
         }      
     } else {
-        alert('All fields can be fill')
+        error('All fields can be fill')
     }      
 });
 
 
-
+function error (text) {
+    const eventContainer = document.getElementsByClassName('event')[0];
+        const error = document.getElementsByClassName('error')[0];
+            if(error) {
+                error.parentNode.removeChild(error)
+            }
+            eventContainer.insertAdjacentHTML('afterbegin', `
+            <div class="errorContainer">
+                <div class="error">
+                    <span>ERROR!!!</span>
+                    <p> ${text}</p>
+                </div>
+            </div>
+            `)
+}
 function partisipans() {
     const eventUser = document.getElementById('event__users');
     for(let i = 0; i < names.length; i++) {
