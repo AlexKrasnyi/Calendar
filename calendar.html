@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          crossorigin="anonymous"/>
     <link rel="stylesheet" href="./srs/scss/style.scss">
     <title>Document</title>
 </head>
 <body>
-    <div class="calendar__container">
-        <div class="header">
-            <h1>Calendar</h1>
-            <select id="names" class="header__field"></select>
-            <button type="button" class="header__button">New event +</button>
-            <a href="./srs/html/create-event.html" id="linkToCreatePage"></a>
-        </div>
-        <div class="calendar">
-            <table class="calendar__table table">
+<div class="calendar__container">
+    <div class="header">
+        <h1>Calendar</h1>
+        <select id="names" class="header__field"></select>
+        <button type="button" class="header__button">New event +</button>
+        <a href="./srs/html/create-event.html" id="linkToCreatePage"></a>
+    </div>
+    <div class="calendar">
+        <table class="calendar__table table">
             <thead class="table__head">
-                <tr class="calendar__header row"></tr>
+            <tr class="calendar__header row"></tr>
             </thead>
-            <tbody class="table__body" ></tbody> 
+            <tbody class="table__body"></tbody>
     </div>
     <script src="./index.js"></script>
+    <script src="./srs/js/dictionaries.js"></script>
 </body>
 </html>
