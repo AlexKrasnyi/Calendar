@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../scss/style.scss">
+    <link rel="stylesheet" href="../scss/multiselect.scss">
     <title>Document</title>
 </head>
 <body>
+
+
     <div class="event">
         <div class="event__name field">
             <label for="event__name" class="field__name">Name of the event:</label>
@@ -17,6 +20,10 @@
         <div class="event__users field">
             <label for="event__users" class="field__name">Partisipants:</label>
             <select id="event__users" class="field__data"></select>
+        </div>
+        <div class="event__users field">
+            <label for="event__users" class="field__name">Partisipants2:</label>
+            <div id="event__users2" class="field__data"></div>
         </div>
         <div class="event__day field">
             <label for="event__day" class="field__name">Day:</label>
@@ -35,5 +42,6 @@
     </div>
 
     <script src="../js/create-event.js"></script>
+    <script src="../js/multiselect.js"></script>
 </body>
 </html>
