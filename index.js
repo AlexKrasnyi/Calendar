@@ -1,13 +1,14 @@
 import {users, calendarHead, dayTimes, createEvent, userFilter} from './srs/js/calendar';
 
-const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-const names = ['all users','Sasha', 'Sveta', 'Sofia', 'Kolya'];
-const times = [10, 11, 12, 13, 14, 15, 16, 17, 18];
+const weekDays = JSON.parse(localStorage.getItem('weekDays'))
+const participantsDict = JSON.parse(localStorage.getItem('participantsDict'))
+const times = JSON.parse(localStorage.getItem('times'))
+
 const tHead = document.getElementsByClassName('calendar__header')[0];
 const tBody = document.getElementsByClassName('table__body')[0];
 const user = document.getElementById('names');
 
-users(names, user);
+users(participantsDict, user);
 calendarHead(["Name", ...weekDays], tHead);
 dayTimes(times, tBody, weekDays);
 
