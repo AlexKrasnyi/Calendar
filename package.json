@@ -2,10 +2,10 @@
   "name": "calendar",
   "version": "1.0.0",
   "description": "js, calendar, test",
-  "main": "index.js",
+  "main": "srs/js/index.js",
   "scripts": {
-    "dev": "parcel calendar.html --no-source-maps --open",
-    "pro": "parcel build calendar.html --no-source-maps --no-cache"
+    "dev": "parcel srs/calendar.html --no-source-maps --open",
+    "pro": "parcel build srs/calendar.html --no-source-maps --no-cache"
   },
   "repository": {
     "type": "git",

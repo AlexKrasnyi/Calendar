@@ -1,4 +1,4 @@
-import {users, calendarHead, dayTimes, createEvent, userFilter} from './srs/js/calendar';
+import {users, calendarHead, dayTimes, createEvent, userFilter} from './calendar';
 
 const weekDays = JSON.parse(localStorage.getItem('weekDays'))
 const participantsDict = JSON.parse(localStorage.getItem('participantsDict'))
