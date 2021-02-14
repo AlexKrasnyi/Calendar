@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel calendar.html --no-source-maps --open",
-    "pro": "parcel build calendar.html --no-source-map --no-cache --publick-url"
+    "pro": "parcel build calendar.html --no-source-maps --no-cache"
   },
   "repository": {
     "type": "git",

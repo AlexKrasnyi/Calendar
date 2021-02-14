@@ -6,7 +6,6 @@ const times = [10, 11, 12, 13, 14, 15, 16, 17, 18];
 const tHead = document.getElementsByClassName('calendar__header')[0];
 const tBody = document.getElementsByClassName('table__body')[0];
 const user = document.getElementById('names');
-const cellActive = [];
 
 users(names, user);
 calendarHead(["Name", ...weekDays], tHead);
@@ -18,7 +17,7 @@ if (!localStorage.getItem('calendarData')) {
 } else {
    const data = JSON.parse(localStorage.getItem('calendarData'));
    const dataEvent = Object.keys(data);
-   createEvent(dataEvent, user, data);
+   createEvent(user);
    userFilter(user, dataEvent, data);
 }
 const linkToCreate = document.getElementById('linkToCreatePage');

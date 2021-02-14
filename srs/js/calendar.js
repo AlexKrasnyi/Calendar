@@ -1,4 +1,4 @@
-
+// form users in filter field
 export function users(arr, user) {
     for(let i = 0; i < arr.length; i++) {
         user.insertAdjacentHTML('beforeend', `
@@ -6,7 +6,7 @@ export function users(arr, user) {
         `)
     }
 }
-
+// form table headers
 export function calendarHead(arr, data){
     for(let i =0; i < arr.length; i++) {
         data.insertAdjacentHTML('beforeEnd', `
@@ -14,7 +14,7 @@ export function calendarHead(arr, data){
         `)
     }
 }
-
+// form table cell
 export function dayTimes(arr, data, days) {
     for (let i = 0; i < arr.length; i++){
         data.insertAdjacentHTML('beforeend', `
@@ -29,25 +29,26 @@ export function dayTimes(arr, data, days) {
         `)
     }    
 }
-
-export function createEvent(dataEvent, user, data) {
+// render events
+export function createEvent(user) {
+    const data = JSON.parse(localStorage.getItem('calendarData'));
+    const dataEvent = Object.keys(data);
     dataEvent.forEach(el => {
         const activeCell = document.getElementById(el);
         displayEvent(activeCell, data, el)
         modalWindow (el, activeCell, data);
     })
 }
-
+// filters events by users
 export function userFilter(user, dataEvent, data) {
     user.addEventListener('change', () => {
         createEvent(dataEvent, user, data)
         if(user.value !== 'all users') {
             dataEvent.forEach(el => {
                 const userEv = data[el].eventPartisipans;
-                console.log(user.value, user.value.includes(userEv));
+                
                 if(!userEv.includes(user.value)) {
                     const delCell = document.getElementById(el);
-                    console.log('el', delCell );
                     delCell.innerHTML = '';
                     delCell.style.backgroundColor = '';
                 } 
@@ -55,15 +56,16 @@ export function userFilter(user, dataEvent, data) {
         }
     })
 }
-
+// form new event
 function displayEvent(activeCell, data, el) {
+    activeCell.style.backgroundColor = '';
     activeCell.style.backgroundColor = '#D3F5B4';
         activeCell.innerHTML = `<div class="activeEvent">
         <p class="activeEvent__name">${data[el].eventName}</p>
         <button type="button" class="activeEvent__button" id="button_${el}">&#10006</button>
         </div>`
 }
-
+// cansel delete event
 function abolishmentDeleteEvent() {
     const modal = document.getElementsByClassName('modal')[0];
     const modalButtonCansel = document.getElementsByClassName('modal__button')[0];
@@ -71,7 +73,7 @@ function abolishmentDeleteEvent() {
          modal.remove();
     });
 }
-
+// delete event
 function removeEvent(cell, data, el) {
     const modal = document.getElementsByClassName('modal')[0];
     const modalButtonOk = document.getElementsByClassName('modal__button')[1];
@@ -83,7 +85,7 @@ function removeEvent(cell, data, el) {
         modal.remove();
     })
 }
-
+// create modal window
 function modalWindow (el, activeCell, data) {
     const activeEventButton = document.getElementById(`button_${el}`);
         activeEventButton.addEventListener('click', () => {
