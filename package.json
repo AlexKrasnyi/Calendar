@@ -5,7 +5,7 @@
   "main": "srs/js/index.js",
   "scripts": {
     "dev": "parcel srs/calendar.html --no-source-maps --open",
-    "pro": "parcel build srs/calendar.html --no-source-maps --no-cache"
+    "pro": "parcel build srs/calendar.html --no-source-maps --no-cache --public-url ."
   },
   "repository": {
     "type": "git",
