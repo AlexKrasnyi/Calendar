@@ -46,8 +46,8 @@ const Motus = {};
       } else if (selection.length > 3) {
         text = selection.length + ' ' + labels.selectedText
       } else {
-        var arr = []
-        for (var i = 0; i < selection.length; i++) {
+        const arr = []
+        for (let i = 0; i < selection.length; i++) {
           arr.push(selection[i].parentNode.textContent)
         }
         text = arr.join(',')
@@ -55,21 +55,20 @@ const Motus = {};
       return text
     }
 
-    var _openList = function (e) {
+    const _openList = function (e) {
       list.style.display = 'block'
       e.srcElement.children[0].focus()
     }
 
-    var _selectItem = function (e) {
-      var text = _selectionText(container)
-      container
-        .getElementsByTagName('button')[0]
+    const _selectItem = function (e) {
+      let text = _selectionText(container)
+      container.getElementsByTagName('button')[0]
         .children[0].setAttribute('placeholder', text)
 
       if (selectCb) {
-        var selectionElements = container.querySelectorAll('input:checked')
-        var selection = []
-        for (var i = 0; i < selectionElements.length; i++) {
+        const selectionElements = container.querySelectorAll('input:checked')
+        const selection = []
+        for (let i = 0; i < selectionElements.length; i++) {
           selection.push(selectionElements[i].value)
         }
         selectCb(selection)
@@ -77,24 +76,24 @@ const Motus = {};
 
     }
 
-    var _clearSearch = function () {
-      var elements = container.getElementsByTagName('li')
-      for (var i = 0; i < elements.length; i++) {
+    const _clearSearch = function () {
+      const elements = container.getElementsByTagName('li')
+      for (let i = 0; i < elements.length; i++) {
         elements[i].style.display = ''
       }
     }
 
-    var _performSearch = function (e) {
+    const _performSearch = function (e) {
       if (e.which !== 13 && e.which !== 38 && e.which !== 40) {
-        var active = list.getElementsByClassName('multiselect-label--active')
+        let active = list.getElementsByClassName('multiselect-label--active')
         if (active.length > 0) {
           active[0].classList.remove('multiselect-label--active')
         }
-        var first = true
-        var filter = e.srcElement.value.toUpperCase()
-        var elements = container.getElementsByTagName('li')
-        for (var i = 0; i < elements.length; i++) {
-          var cb = elements[i].getElementsByTagName('label')[0].textContent
+        let first = true
+        let filter = e.srcElement.value.toUpperCase()
+        const elements = container.getElementsByTagName('li')
+        for (let i = 0; i < elements.length; i++) {
+          const cb = elements[i].getElementsByTagName('label')[0].textContent
           if (cb.toUpperCase().indexOf(filter) !== -1) {
             if (first) {
               first = false
@@ -108,8 +107,8 @@ const Motus = {};
       }
     }
 
-    var _fnClearSelection = function (e) {
-      var inputs = list.getElementsByTagName('input')
+    const _fnClearSelection = function (e) {
+      const inputs = list.getElementsByTagName('input')
       for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].checked) {
           inputs[i].parentNode.click()
@@ -118,9 +117,9 @@ const Motus = {};
       e.stopPropagation()
     }
 
-    var _fnSelectAll = function (e) {
-      var inputs = list.getElementsByTagName('input')
-      for (var i = 0; i < inputs.length; i++) {
+    const _fnSelectAll = function (e) {
+      const inputs = list.getElementsByTagName('input')
+      for (let i = 0; i < inputs.length; i++) {
         if (!inputs[i].checked) {
           inputs[i].parentNode.click()
         }
@@ -154,21 +153,21 @@ const Motus = {};
     list.classList.add('multiselect-list')
 
     for (var i = -1; i < data.length; i++) {
-      var item = document.createElement('li')
-      var a = document.createElement('a')
-      var label = document.createElement('label')
-      var input = document.createElement('input')
+      const item = document.createElement('li')
+      const a = document.createElement('a')
+      const label = document.createElement('label')
+      const input = document.createElement('input')
 
       a.setAttribute('tabindex', '0')
 
       label.classList.add('multiselect-item-label')
 
-      if (i == -1) {
+      if (i === -1) {
         a.addEventListener('click', _fnSelectAll)
         label.appendChild(document.createTextNode('Select all'))
         label.classList.add('multiselect-item-label--select-all')
       } else {
-        if (i == 0) {
+        if (i === 0) {
           label.classList.add('multiselect-item-label--active')
         }
         input.setAttribute('type', 'checkbox')
@@ -199,15 +198,15 @@ const Motus = {};
     })
 
     document.addEventListener('keyup', function (e) {
-      if (list.style.display == 'block') {
+      if (list.style.display === 'block') {
         //mouse down
         if (e.which === 40) {
           let active = list.getElementsByClassName(
             'multiselect-label--active'
           )[0]
-          var next = active.parentNode.parentNode.nextSibling
+          let next = active.parentNode.parentNode.nextSibling
           //Find the next visible element
-          while (next && next.style && next.style.display == 'none') {
+          while (next && next.style && next.style.display === 'none') {
             next = next.nextSibling
           }
           if (next) {
@@ -264,9 +263,9 @@ const data = [
   { label: 'Maksym Vorobiev', value: 'MVorobiev' },
   { label: 'Oleksandr Vakulenko', value: 'OVakulenko' }
 ]
-var element = document.getElementById('event__users2')
+const element = document.getElementById('event__users2')
 
-var select = function (data) {
+const select = function (data) {
   console.log(data)
 }
 
