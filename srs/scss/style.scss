@@ -92,7 +92,11 @@ body {
         border-radius: 5px;
         outline: none;
     }
+    &__data_multiselect {
+        height: 35px;
+    }
 }
+
 
 .buttons {
     width: 100%;

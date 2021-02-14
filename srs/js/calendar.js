@@ -32,7 +32,9 @@ export function dayTimes (arr, data, days) {
   }
 }
 
-export function createEvent (dataEvent, user, data) {
+export function createEvent (user) {
+  const data = JSON.parse(localStorage.getItem('calendarData'));
+  const dataEvent = Object.keys(data);
   dataEvent.forEach(el => {
     const activeCell = document.getElementById(el)
     displayEvent(activeCell, data, el)
@@ -42,7 +44,7 @@ export function createEvent (dataEvent, user, data) {
 
 export function userFilter (user, dataEvent, data) {
   user.addEventListener('change', () => {
-    createEvent(dataEvent, user, data)
+    createEvent(user)
     if (user.value !== 'all users') {
       dataEvent.forEach(el => {
         const userEv = data[el].eventPartisipans

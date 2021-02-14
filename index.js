@@ -19,7 +19,7 @@ if (!localStorage.getItem('calendarData')) {
 } else {
    const data = JSON.parse(localStorage.getItem('calendarData'));
    const dataEvent = Object.keys(data);
-   createEvent(dataEvent, user, data);
+   createEvent(user);
    userFilter(user, dataEvent, data);
 }
 const linkToCreate = document.getElementById('linkToCreatePage');
