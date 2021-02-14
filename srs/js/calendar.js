@@ -7,7 +7,6 @@ export function users(arr, user) {
     }
 }
 
-
 export function calendarHead(arr, data){
     for(let i =0; i < arr.length; i++) {
         data.insertAdjacentHTML('beforeEnd', `
@@ -45,12 +44,13 @@ export function userFilter(user, dataEvent, data) {
         if(user.value !== 'all users') {
             dataEvent.forEach(el => {
                 const userEv = data[el].eventPartisipans;
-                if(user.value !== userEv) {
+                console.log(user.value, user.value.includes(userEv));
+                if(!userEv.includes(user.value)) {
                     const delCell = document.getElementById(el);
                     console.log('el', delCell );
                     delCell.innerHTML = '';
                     delCell.style.backgroundColor = '';
-                }
+                } 
             })
         }
     })
@@ -72,7 +72,6 @@ function abolishmentDeleteEvent() {
     });
 }
 
-
 function removeEvent(cell, data, el) {
     const modal = document.getElementsByClassName('modal')[0];
     const modalButtonOk = document.getElementsByClassName('modal__button')[1];
@@ -92,16 +91,16 @@ function modalWindow (el, activeCell, data) {
             document.body.insertAdjacentHTML('afterbegin', `
                  <div class="modal">
                      <div class="modal__window">
-                         <p>Delete event?</p>
+                         <p>Are yor sure you want to delete " ${data[el].eventName} " event?</p>
                          <div>
-                             <button class="modal__button">Cansel</button>
-                             <button class="modal__button">Ok</button>
+                             <button class="modal__button">No</button>
+                             <button class="modal__button">Yes</button>
                          </div>
                      </div>
                  </div>
             `)
         abolishmentDeleteEvent();
-        removeEvent( activeCell, data, el);
+        removeEvent(activeCell, data, el);
     })
 }
 

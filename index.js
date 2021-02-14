@@ -21,4 +21,6 @@ if (!localStorage.getItem('calendarData')) {
    createEvent(dataEvent, user, data);
    userFilter(user, dataEvent, data);
 }
-
+const linkToCreate = document.getElementById('linkToCreatePage');
+const createButton = document.getElementsByClassName('header__button')[0];
+createButton.addEventListener('click', () => linkToCreate.click());
