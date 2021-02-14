@@ -19,7 +19,15 @@
         </div>
         <div class="event__users field">
             <label for="event__users" class="field__name">Partisipants:</label>
-            <select id="event__users" class="field__data"></select>
+            <div class="select" id="select-1">
+                <div class="select__backdrop"></div>
+                <div class="select__fieldWrap" data-select="backdrop"><p class="select__field"></p></div> 
+                <p class="select__trigger"></p> 
+                <div class="select__dropdown">
+                  <ul class="select__items"></ul>
+                </div>
+              </div>
+
         </div>
         <div class="event__users field">
             <label for="event__users" class="field__name">Partisipants2:</label>
@@ -27,11 +35,11 @@
         </div>
         <div class="event__day field">
             <label for="event__day" class="field__name">Day:</label>
-            <select id="event__day" class="field__data"></select>
+            <select id="event__day" class="field__data select"></select>
         </div>
         <div class="event__time field" >
             <label for="event__time" class="field__name">Time:</label>
-            <select id="event__time" class="field__data">
+            <select id="event__time" class="field__data select">
             </select>
         </div>
         <div class="buttons">

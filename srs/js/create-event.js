@@ -14,7 +14,7 @@ const returnHome = document.getElementsByClassName('homeWay')[0];
 addEvent[0].addEventListener('click', () => returnHome.click());
 addEvent[1].addEventListener('click', () => {
     const nameEvent = document.getElementById('event__name').value;
-    const partisipantsEvent = document.getElementById('event__users').value;
+    const partisipantsEvent = document.getElementsByClassName('select__field')[0].textContent.replace(/(\,.*)\./g).split(' ');
     const dayEvent = document.getElementById('event__day').value;
     const timeEvent = document.getElementById('event__time').value;
     if(nameEvent && partisipantsEvent && dayEvent && timeEvent) {
@@ -55,10 +55,10 @@ function error (text) {
             `)
 }
 function partisipans() {
-    const eventUser = document.getElementById('event__users');
+    const eventUser = document.getElementsByClassName('select__items')[0];
     for(let i = 0; i < names.length; i++) {
         eventUser.insertAdjacentHTML('beforeend', `
-        <option value="${names[i]}" class="userOption"> ${names[i]}</option>
+        <li class="select__item" data-select="item">${names[i]}</li>
         `)
     }
 }
@@ -78,4 +78,32 @@ function time() {
         <option value="${times[i]}">${times[i]}:00</option> 
         `
         )}
+}
+
+const usersButton = document.getElementsByClassName('select__trigger')[0];
+usersButton.addEventListener('click', () => {
+    const userList = document.getElementsByClassName('select__dropdown')[0];
+    const backDrop = document.getElementsByClassName('select__backdrop')[0];
+    userList.style.display = 'block';
+    backDrop.style.display = 'block';
+    addParticipants(userList);
+    backDrop.addEventListener('click', ()=> {
+        userList.style.display = 'none';
+        backDrop.style.display = 'none';
+    })
+})
+
+function addParticipants(userList) {
+    const evUsers = []
+    const items = document.getElementsByClassName('select__item');
+    const userField = document.getElementsByClassName('select__field')[0];
+    for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener('click', () => {
+            if(!evUsers.includes(items[i].textContent)) {
+                userField.insertAdjacentText('beforeend', `${items[i].textContent} `)
+                items[i].style.backgroundColor = 'lightblue';
+                evUsers.push(items[i].textContent)
+            }
+        })
+    } 
 }
