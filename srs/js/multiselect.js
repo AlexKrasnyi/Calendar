@@ -41,7 +41,7 @@ const createMultiselect = function (element, data, selectCb, options) {
     const selection = element.querySelectorAll('input:checked')
     if (selection.length === 0) {
       text = labels.emptyText
-    } else if (selection.length > 3) {
+    } else if (selection.length > 2) {
       text = selection.length + ' ' + labels.selectedText
     } else {
       const arr = []
